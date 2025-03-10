@@ -12,7 +12,7 @@ const movieControllers = require('../controllers/moviesControllers');
 router.get('/', movieControllers.index);
 
 // SHOW
-// router.get('/:id', postController.show);
+router.get('/:id', movieControllers.show);
 
 
 
