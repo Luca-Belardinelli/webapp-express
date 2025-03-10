@@ -1,0 +1,26 @@
+{
+  "name": "webapp-express",
+  "version": "1.0.0",
+  "description": "> Ciao ragazzi, esercizio di oggi: Setup Web App Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node --watch app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luca-Belardinelli/webapp-express.git"
+  },
+  "author": "Luca Belardinelli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luca-Belardinelli/webapp-express/issues"
+  },
+  "homepage": "https://github.com/Luca-Belardinelli/webapp-express#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0"
+  }
+}
