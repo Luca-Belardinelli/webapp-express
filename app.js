@@ -10,6 +10,8 @@ const moviesRouter = require('./routers/movies')
 const notFound = require('./middlewares/notFound');
 // IMPORTIAMO IL MIDDLEWARE ERRORE SERVER
 const errorsHandler = require('./middlewares/errorsHandler');
+// IMPORTIAMO IL MIDDLEWARE PER LA GESTIONE PATH IMG
+const imagePath = require('./middlewares/imagePath');
 
 
 // importiamo il middleware di CORS
@@ -19,6 +21,8 @@ var cors = require('cors')
 // REGISTRO IL BODY-PARSER PER JSON
 app.use(express.json());
 
+// REGISTRO MIDDLEWARE IMG
+app.use(imagePath);
 
 // registro il middleware di CORS
 app.use(cors())
