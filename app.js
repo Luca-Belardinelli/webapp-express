@@ -5,7 +5,7 @@ const app = express()
 // DEFINIAMO LA PORTA
 const port = 3000
 // IMPORTIAMO IL ROUTER
-// const postsRouter = require('./routers/posts')
+const moviesRouter = require('./routers/movies')
 // IMPORTIAMO IL MIDDLEWARE NOTFOUND
 const notFound = require('./middlewares/notFound');
 // IMPORTIAMO IL MIDDLEWARE ERRORE SERVER
@@ -24,12 +24,12 @@ app.use(express.json());
 app.use(cors())
 
 // DEFINIAMO LA PRIMA ROTTA
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Server del mio blog')
 })
 
 // ROUTER
-// app.use("/posts", postsRouter)
+app.use("/api/movies", moviesRouter)
 
 
 // UTILIZZIAMO NOTFOUND
