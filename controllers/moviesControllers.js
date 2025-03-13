@@ -64,6 +64,9 @@ function show(req, res) {
             //AGGIUNGO PROPRIETà REVIEW AI MOVIES
             movie.reviews = reviewResult;
 
+            //AGGIUNGO PROPRIETà PATH AL SINGOLO MOVIE
+            movie.image = req.imagePath + movie.image;
+
             // TORNO OGGETTO AGGIORNATO
             res.json(movie);
 
