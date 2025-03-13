@@ -14,6 +14,8 @@ router.get('/', movieControllers.index);
 // SHOW
 router.get('/:id', movieControllers.show);
 
+// STORE REWIES
+router.post('/:id/reviews', movieControllers.storeReview);
 
 
 // ESPORTIAMO IL MODULO ROUTER

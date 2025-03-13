@@ -74,5 +74,29 @@ function show(req, res) {
     });
 }
 
+
+// STORE INSERIMENTO NUOVA REVIEW
+
+function storeReview(req, res) {
+
+    //ID PRESO DAI PARAMETRI PRESI DALLA ROTTA
+    const { id } = req.params;
+
+    // INFO PRESE DAL BODY DAL FRONTEND
+    const { text, name, vote } = req.body;
+
+    //QUERY
+    const insertReviesSql = 'INSERT INTO reviews (text, name, vote , movie_id) VALUES (?, ?, ?, ?)'
+
+    //ESEGUIAMO LA QUERY 
+    connection.query(insertReviesSql, [text, name, vote, id], (err, results) => {
+        if (err) return res.status(500).json({ error: 'Database query failed' });
+        res.status(201);
+        res.json({ message: 'Review added', id: results.insertId });
+    });
+}
+
+
+
 // esportiamo tutto
-module.exports = { index, show };
+module.exports = { index, show, storeReview };
