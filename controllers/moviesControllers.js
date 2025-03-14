@@ -74,6 +74,34 @@ function show(req, res) {
     });
 }
 
+//INSERIMENTO NUOVO movies
+function store(req, res, next) {
+
+    // DESTRUTTURO
+    const { title, director, abstract } = req.body;
+
+    //GESTIAMO IL VALORE DEL NOME FILE CREATO DAL MIDDLEWARE
+    const imageName = `${req.file.filename}`;
+
+    // QUERY INSERT
+    const query = 'INSERT INTO movies (title, director, abstract , image) VALUES (?, ?, ?, ?)'
+
+    // QUERY
+    connection.query(query,
+        [title, director, abstract, imageName],
+        (err, result) => {
+            if (err) {
+                console.log(err)
+                return next(new Error("Errore interno del server"))
+            }
+
+            res.status(201).json({
+                status: "succes",
+                message: "Movie creato con successo",
+            });
+        }
+    )
+}
 
 // STORE INSERIMENTO NUOVA REVIEW
 
@@ -99,4 +127,4 @@ function storeReview(req, res) {
 
 
 // esportiamo tutto
-module.exports = { index, show, storeReview };
+module.exports = { index, show, store, storeReview };

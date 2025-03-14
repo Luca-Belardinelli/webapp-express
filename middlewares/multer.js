@@ -4,7 +4,7 @@ const multer = require("multer");
 // File upload middleware
 const storage = multer.diskStorage({
     //cartella in cui verranno salvati i file
-    destination: "./public/img/books/",
+    destination: "./public/img/movies/",
     filename: (req, file, cb) => {
         // Crea un nome univoco usando il timestamp
         const uniqueName = `${Date.now()}-${file.originalname}`;
